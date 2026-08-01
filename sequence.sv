@@ -6,77 +6,94 @@ class seq extends uvm_sequence #(trans);
  endfunction
 
  task body();
-       req=trans::type_id::create("req");
+	 
+        req=trans::type_id::create("req");
 	begin
 		   start_item(req);
-		   assert(req.randomize() with {mode==1'b1;cmd==4'b0000;OA=='d3;OB=='d3;});
+		    	assert(req.randomize());
 		   finish_item(req);
 	end
+	
  endtask
+endclass
+//-------------------------------------------------------------------------------------
 
- endclass
+class seq_with_res extends uvm_sequence #(trans);
+        `uvm_object_utils(seq)
 
-class seq_1 extends uvm_sequence #(trans);
-	`uvm_object_utils(seq_1) 
-
- function new(string name="seq_1");
-	super.new(name);
+ function new(string name="seq");
+        super.new(name);
  endfunction
 
  task body();
-       req=trans::type_id::create("req");
-	begin
-		   start_item(req);
-		   assert(req.randomize() with {mode==1'b1;cmd==4'b0001;OA=='d10;OB=='d5;});
-		   finish_item(req);
-	end
+
+        req=trans::type_id::create("req");
+        begin
+                   start_item(req);
+                        assert(req.randomize() with req.res==1;);
+                   finish_item(req);
+        end
+
  endtask
+endclass
+//------------------------------------------------------------------------------------
 
- endclass
+class seq_without_ce extends uvm_sequence #(trans);
+        `uvm_object_utils(seq)
 
-class cycle_seq extends uvm_sequence #(trans);
-	`uvm_object_utils(cycle_seq) 
-
- function new(string name="cycle_seq");
-	super.new(name);
+ function new(string name="seq");
+        super.new(name);
  endfunction
 
  task body();
-       req=trans::type_id::create("req");
-	begin
-		   start_item(req);
-		   assert(req.randomize() with {mode==1'b1;cmd==4'b1001;OA=='d10;OB=='d5;});
-		   finish_item(req);
-	end
+
+        req=trans::type_id::create("req");
+        begin
+                   start_item(req);
+                        assert(req.randomize() with req.res==0; req.ce=0;);
+                   finish_item(req);
+        end
+
  endtask
+endclass
 
- endclass
+//------------------------------------------------------------------------------------------
+class seq_with_arithmatic extends uvm_sequence #(trans);
+        `uvm_object_utils(seq)
 
-
-class err_seq extends uvm_sequence #(trans);
-	`uvm_object_utils(err_seq) 
-
- function new(string name="err_seq");
-	super.new(name);
+ function new(string name="seq");
+        super.new(name);
  endfunction
 
  task body();
-       req=trans::type_id::create("req");
-	begin
-		   start_item(req);
-		   assert(req.randomize() with {mode==1'b0;cmd==4'b1100;OA=='d100;OB=='b10000001;});
-		   finish_item(req);
-	end
+
+        req=trans::type_id::create("req");
+        begin
+                   start_item(req);
+                        assert(req.randomize() with req.res==0; req.ce==1; req.mode==1; req.cmd inside {[0:10]};);
+                   finish_item(req);
+        end
+
  endtask
+endclass
 
- endclass
+//---------------------------------------------------------------------------------------------
 
+class seq_with_logical extends uvm_sequence #(trans);
+        `uvm_object_utils(seq)
 
+ function new(string name="seq");
+        super.new(name);
+ endfunction
 
+ task body();
 
+        req=trans::type_id::create("req");
+        begin
+                   start_item(req);
+                        assert(req.randomize() with req.res==0; req.ce==1; req.mode==0; req.cmd inside {[0:13]};);
+                   finish_item(req);
+        end
 
-
-
-
-
-
+ endtask
+endclass

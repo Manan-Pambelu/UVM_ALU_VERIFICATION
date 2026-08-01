@@ -1,9 +1,10 @@
-       `include "test_pkg.sv"
-	`include "alu_if.sv"
-	`include "alu_rtl.sv"
+       `include "package.svh"
+	`include "interface.sv"
+	`include "DUT.sv"
 
  module top();       
 	import uvm_pkg::*;
+	import test_pkg::*;
 
 	bit clk;
 
@@ -22,7 +23,7 @@
 		$dumpfile("waves.fsdb");
 		  $dumpvars;
 
-	        run_test();
+	        run_test("test1");
 		
 	end
 

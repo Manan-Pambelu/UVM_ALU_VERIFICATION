@@ -1,11 +1,10 @@
-class env extends uvm_env;
-	`uvm_component_utils(env)
+class alu_env extends uvm_env;
+	`uvm_component_utils(alu_env)
  
- input_agent inp_agt_h;
- output_agent out_agt_h;
- scoreboard sb_h;
+ act_agent act_agt_h;
+ pas_agent pas_agt_h;
+ scoreboard scb_h;
 
- alu_config m_cfg;
 
  function new(string name="env",uvm_component parent);
 	super.new(name,parent);
@@ -14,19 +13,16 @@ class env extends uvm_env;
  function void build_phase(uvm_phase phase);
 	super.build_phase(phase);
 
- if(!uvm_config_db#(alu_config)::get(this,"","alu_config",m_cfg))
-	`uvm_fatal(get_type_name(),"Output_agt Getting Failed")
-
-  inp_agt_h=input_agent::type_id::create("inp_agt_h",this);
-  out_agt_h=output_agent::type_id::create("out_agt_h",this);
-  sb_h=scoreboard::type_id::create("sb_h",this);
+  act_agt_h=alu_act_agent::type_id::create("act_agt_h",this);
+  pas_agt_h=alu_pas_agent::type_id::create("pas_agt_h",this);
+  scb_h=alu_scoreboard::type_id::create("scb_h",this);
 
  endfunction
 
  function void connect_phase(uvm_phase phase);
 	super.connect_phase(phase);
-	inp_agt_h.mon_h.inp_monitor_port.connect(sb_h.inp_mon_fifo.analysis_export);
-	out_agt_h.mon_h.out_monitor_port.connect(sb_h.out_mon_fifo.analysis_export);
+	act_agt_h.act_mon_h.act_mon_aport.connect(scb_h.act_mon_fifo.inp_analysis_export);
+	pas_agt_h.pas_mon_h.pas_mon_aport.connect(scb_h.pas_mon_fifo.out_analysis_export);
  endfunction
 
 endclass

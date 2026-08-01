@@ -1,65 +1,112 @@
-class input_driver extends uvm_driver#(trans);
-	`uvm_component_utils(input_driver)
+class alu_driver extends uvm_driver #(trans);
+	`uvm_component_utils(alu_driver)
 
-	virtual alu_if.INP_DRV vif;
-	alu_config m_cfg;
-	//trans data2duv;
+	reg [3:0] temp_cmd;
+	reg temp_mode;
+	reg [3:0] count;
 
- function new(string name="input_driver",uvm_component parent);
-	super.new(name,parent);
- endfunction
+	alu seq_item temp_seq;
 
- function void build_phase(uvm_phase phase);
-	super.build_phase(phase);
-   if(!uvm_config_db#(alu_config)::get(this,"","alu_config",m_cfg))
-	`uvm_fatal(get_type_name(),"Input_Driver Getting Failed")
- endfunction
+	virtual alu_if vif;
 
- function void connect_phase(uvm_phase phase);
-	super.connect_phase(phase);
- 	vif=m_cfg.vif;
- endfunction
+	uvm_analysis_port #(trans) driven_data;
 
- task run_phase(uvm_phase phase);
-	begin	
-		
-		@(vif.inp_dr_cb);
-		 vif.inp_dr_cb.rst<=1'b1;
-		@(vif.inp_dr_cb);
-	         vif.inp_dr_cb.rst<=1'b0;
+	function new(string name="alu_driver", uvm_component parent);
+		super.new(name,parent);
+	endfunction
 
-	forever
+	function void build_phase(uvm_phase phase);
+		super.build_phase(phase);
+
+	       	if(!uvm_config_db#(virtual alu_if)::set(this,"","alu_if",vif))
+			`uvm_fatal(get_type_name(), "virtual inteface config failed")
+
+		driven_data=new("driven_data",this);
+	endfunction
+
+	task run_phase(uvm_phase phase);
+		super.run_phase(phase);
+
+		seq_item_port.get_next_item(req);
+
+		if((req.mode==1 && (req.cmd<4 || (req.cmd>7 && req.cmd<=10))) || (req.mode==0 && (req.cmd<6 || (req.cmd>11 && req.cmd<=13))) && (req.inp_valid==1 || req.inp_valid==2) && (count!=15))
+
 		begin
-		   seq_item_port.get_next_item(req);
-		   drive(req);
-		   seq_item_port.item_done();
+			if(count==0)
+			begin
+				temp_cmd <=req.cmd;
+				temp_mode <=req.mode;
+			end
+
+			drive_with_count();
+			count++;
+
 		end
-   	end
 
- endtask
+		else if(count>0 &&( req.inp_valid==1 || req.inp_valid==2))
+		begin
+			drive_with_count();
+			count++
+		end
 
- task drive(trans data2duv);
-	begin
-		`uvm_info("INPUT_DRIVER",$sformatf("Input Driver\n%s",data2duv.sprint()),UVM_NONE)
-        	@(vif.inp_dr_cb);
+		else
+		begin
+			if(count>0)
+			begin
+				drive_with_count();
+			end
 
-	    vif.inp_dr_cb.ce        <= data2duv.ce;
-	    vif.inp_dr_cb.inp_valid <= data2duv.inp_valid;
-	    vif.inp_dr_cb.OA        <= data2duv.OA;
-	    vif.inp_dr_cb.OB        <= data2duv.OB;
-            vif.inp_dr_cb.mode      <= data2duv.mode;
-	    vif.inp_dr_cb.cmd       <= data2duv.cmd;
-	    //vif.inp_dr_cb.cin        <= data2duv.cin;
+			else
+				drive_without_count();
+		end
+
+		seq_item_port.item_done(req);
+	endtask
+
+	task drive_with_count();
+		begin
+		temp_seq=trans::type_id::create("temp_seq",this);
+                temp_seq.copy(req);
+		temp_seq.cmd<=temp_cmd;
+		temp_seq.mode<=temp_mode;
+
+		vif.cmd<= temp_cmd;
+		vif.mode<=temp_mode;
+		vif.res<=req.res;
+		vif.ce<=req.ce;
+		vif.OA<=req.OA;
+		vif.OB<=req.OB;
+		vif.cin<=req.cin;
+		vif.inp_valid<=req.inp_valid;
+
+		repeat(3) @(posedge vif.driver_cb)
+		driven_data.write(req);
+		end
+	endtask
 
 
-	   if((data2duv.mode==1) && ((data2duv.cmd==4'b0010) || (data2duv.cmd==4'b0011)))
-	    begin
-	   vif.inp_dr_cb.cin        <= data2duv.cin;
-	    end
+	task drive_without_count();
+		begin
+ 		vif.cmd<= req.cmd;
+		vif.mode<=req.mode;
+		vif.res<=req.res;
+		vif.ce<=req.ce;
+		vif.OA<=req.OA;
+		vif.OB<=req.OB;
+		vif.cin<=req.cin;
+		vif.inp_valid<=req.inp_valid;
 
-	    end
- endtask
-	
+		repeat(3) @(posedge vif.driver_cb)
+		driven_data.write(req);
 
+		end
+	endtask
 endclass
+
+
+
+
+
+
+
 

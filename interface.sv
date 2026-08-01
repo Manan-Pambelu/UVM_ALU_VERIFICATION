@@ -7,7 +7,7 @@ logic[3:0]cmd;
 logic[7:0]res;
 logic rst,mode,ce,cin,err,oflow,cout,G,E,L;
 
-clocking inp_dr_cb@(posedge clk);
+clocking driver_cb@(posedge clk);
 	default input #1 output #1;
 	output OA;
 	output OB;
@@ -16,7 +16,7 @@ clocking inp_dr_cb@(posedge clk);
 	output mode,cin,ce,rst;
 endclocking
 
-clocking inp_mon_cb@(posedge clk);
+clocking act_mon_cb@(posedge clk);
 	default input #1 output #1;
 	input OA;
 	input OB;
@@ -26,23 +26,20 @@ clocking inp_mon_cb@(posedge clk);
 endclocking
 
 
-clocking out_mon_cb@(posedge clk);
+clocking pas_mon_cb@(posedge clk);
 	default input #1 output #1;
 	input OA;
 	input OB;
 	input inp_valid;
 	input cmd;
 	input mode,cin,ce,rst;
-
-	//input mode;
-	//input cmd;
 	input err,res,oflow,cout,G,E,L;
 
 endclocking 
 
-modport INP_DRV(clocking inp_dr_cb);
-modport INP_MON(clocking inp_mon_cb);
-modport OUT_MON(clocking out_mon_cb);
+modport DRV(clocking driver_cb);
+modport ACT_MON(clocking act_mon_cb);
+modport PAS_MON(clocking pas_mon_cb);
 
 endinterface
 

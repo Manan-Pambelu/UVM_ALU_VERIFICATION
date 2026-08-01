@@ -1,7 +1,7 @@
-class input_sequencer extends uvm_sequencer#(trans);
-		`uvm_component_utils(input_sequencer)
+class alu_sequencer extends uvm_sequencer#(trans);
+		`uvm_component_utils(alu_sequencer)
 
-	 function new(string name="input_sequencer",uvm_component parent);
+	 function new(string name="alu_sequencer",uvm_component parent);
 		 	super.new(name,parent);
 		  endfunction
 

@@ -1,0 +1,310 @@
+# vsim -c top 
+# Start time: 16:48:22 on Jul 30,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: top.sv(15): (vopt-2241) Connection width does not match width of port 'RES'. The port definition is at: DUT.sv(1).
+# //  Questa Sim
+# //  Version 10.6c linux Jul 25 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.alu_if(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.test_pkg(fast)
+# Loading work.top(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test test1...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# ------------------------------------------------------------------
+# Name                       Type                        Size  Value
+# ------------------------------------------------------------------
+# uvm_test_top               test1                       -     @472 
+#   env_h                    env                         -     @485 
+#     inp_agt_h              input_agent                 -     @493 
+#       dr_h                 input_driver                -     @617 
+#         rsp_port           uvm_analysis_port           -     @632 
+#         seq_item_port      uvm_seq_item_pull_port      -     @624 
+#       mon_h                input_monitor               -     @610 
+#         inp_monitor_port   uvm_analysis_port           -     @751 
+#       seqr_h               input_sequencer             -     @640 
+#         rsp_export         uvm_analysis_export         -     @647 
+#         seq_item_export    uvm_seq_item_pull_imp       -     @741 
+#         arbitration_queue  array                       0     -    
+#         lock_queue         array                       0     -    
+#         num_last_reqs      integral                    32    'd1  
+#         num_last_rsps      integral                    32    'd1  
+#     out_agt_h              output_agent                -     @500 
+#       mon_h                output_monitor              -     @766 
+#         out_monitor_port   uvm_analysis_port           -     @774 
+#     sb_h                   scoreboard                  -     @507 
+#       inp_mon_fifo         uvm_tlm_analysis_fifo #(T)  -     @514 
+#         analysis_export    uvm_analysis_imp            -     @553 
+#         get_ap             uvm_analysis_port           -     @545 
+#         get_peek_export    uvm_get_peek_imp            -     @529 
+#         put_ap             uvm_analysis_port           -     @537 
+#         put_export         uvm_put_imp                 -     @521 
+#       out_mon_fifo         uvm_tlm_analysis_fifo #(T)  -     @561 
+#         analysis_export    uvm_analysis_imp            -     @600 
+#         get_ap             uvm_analysis_port           -     @592 
+#         get_peek_export    uvm_get_peek_imp            -     @576 
+#         put_ap             uvm_analysis_port           -     @584 
+#         put_export         uvm_put_imp                 -     @568 
+# ------------------------------------------------------------------
+# 
+# UVM_INFO driver.sv(43) @ 15: uvm_test_top.env_h.inp_agt_h.dr_h [INPUT_DRIVER] Input Driver
+# -------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                 
+# -------------------------------------------------------------------------------------
+# req                            trans     -     @809                                  
+#   begin_time                   time      64    15                                    
+#   depth                        int       32    'd2                                   
+#   parent sequence (name)       string    2     s1                                    
+#   parent sequence (full name)  string    38    uvm_test_top.env_h.inp_agt_h.seqr_h.s1
+#   sequencer                    string    35    uvm_test_top.env_h.inp_agt_h.seqr_h   
+#   Clock Enable                 integral  1     1                                     
+#   INPUT_A                      integral  8     'd3                                   
+#   INPUT_B                      integral  8     'd3                                   
+#   INPUT_VALID                  integral  2     3                                     
+#   COMMAND                      integral  4     'd0                                   
+#   MODE                         integral  1     1                                     
+#   CIN                          integral  1     1                                     
+#   RESULT                       integral  9     'dX                                   
+#   ERROR                        integral  1     'dX                                   
+#   OFLOW                        integral  1     'dX                                   
+#   COUT                         integral  1     'dX                                   
+#   GREATER                      integral  1     'dX                                   
+#   EQUALITY                     integral  1     'dX                                   
+#   LESSER                       integral  1     'dX                                   
+# -------------------------------------------------------------------------------------
+# 
+# UVM_INFO driver.sv(43) @ 25: uvm_test_top.env_h.inp_agt_h.dr_h [INPUT_DRIVER] Input Driver
+# -------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                 
+# -------------------------------------------------------------------------------------
+# req                            trans     -     @813                                  
+#   begin_time                   time      64    25                                    
+#   depth                        int       32    'd2                                   
+#   parent sequence (name)       string    2     s2                                    
+#   parent sequence (full name)  string    38    uvm_test_top.env_h.inp_agt_h.seqr_h.s2
+#   sequencer                    string    35    uvm_test_top.env_h.inp_agt_h.seqr_h   
+#   Clock Enable                 integral  1     1                                     
+#   INPUT_A                      integral  8     'd10                                  
+#   INPUT_B                      integral  8     'd5                                   
+#   INPUT_VALID                  integral  2     3                                     
+#   COMMAND                      integral  4     'd1                                   
+#   MODE                         integral  1     1                                     
+#   CIN                          integral  1     1                                     
+#   RESULT                       integral  9     'dX                                   
+#   ERROR                        integral  1     'dX                                   
+#   OFLOW                        integral  1     'dX                                   
+#   COUT                         integral  1     'dX                                   
+#   GREATER                      integral  1     'dX                                   
+#   EQUALITY                     integral  1     'dX                                   
+#   LESSER                       integral  1     'dX                                   
+# -------------------------------------------------------------------------------------
+# 
+# UVM_INFO driver.sv(43) @ 35: uvm_test_top.env_h.inp_agt_h.dr_h [INPUT_DRIVER] Input Driver
+# -------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                 
+# -------------------------------------------------------------------------------------
+# req                            trans     -     @817                                  
+#   begin_time                   time      64    35                                    
+#   depth                        int       32    'd2                                   
+#   parent sequence (name)       string    2     s3                                    
+#   parent sequence (full name)  string    38    uvm_test_top.env_h.inp_agt_h.seqr_h.s3
+#   sequencer                    string    35    uvm_test_top.env_h.inp_agt_h.seqr_h   
+#   Clock Enable                 integral  1     1                                     
+#   INPUT_A                      integral  8     'd10                                  
+#   INPUT_B                      integral  8     'd5                                   
+#   INPUT_VALID                  integral  2     3                                     
+#   COMMAND                      integral  4     9                                     
+#   MODE                         integral  1     1                                     
+#   CIN                          integral  1     'd0                                   
+#   RESULT                       integral  9     'dX                                   
+#   ERROR                        integral  1     'dX                                   
+#   OFLOW                        integral  1     'dX                                   
+#   COUT                         integral  1     'dX                                   
+#   GREATER                      integral  1     'dX                                   
+#   EQUALITY                     integral  1     'dX                                   
+#   LESSER                       integral  1     'dX                                   
+# -------------------------------------------------------------------------------------
+# 
+# UVM_INFO driver.sv(43) @ 45: uvm_test_top.env_h.inp_agt_h.dr_h [INPUT_DRIVER] Input Driver
+# -------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                 
+# -------------------------------------------------------------------------------------
+# req                            trans     -     @821                                  
+#   begin_time                   time      64    45                                    
+#   depth                        int       32    'd2                                   
+#   parent sequence (name)       string    2     e1                                    
+#   parent sequence (full name)  string    38    uvm_test_top.env_h.inp_agt_h.seqr_h.e1
+#   sequencer                    string    35    uvm_test_top.env_h.inp_agt_h.seqr_h   
+#   Clock Enable                 integral  1     1                                     
+#   INPUT_A                      integral  8     'd100                                 
+#   INPUT_B                      integral  8     129                                   
+#   INPUT_VALID                  integral  2     3                                     
+#   COMMAND                      integral  4     12                                    
+#   MODE                         integral  1     'd0                                   
+#   CIN                          integral  1     1                                     
+#   RESULT                       integral  9     'dX                                   
+#   ERROR                        integral  1     'dX                                   
+#   OFLOW                        integral  1     'dX                                   
+#   COUT                         integral  1     'dX                                   
+#   GREATER                      integral  1     'dX                                   
+#   EQUALITY                     integral  1     'dX                                   
+#   LESSER                       integral  1     'dX                                   
+# -------------------------------------------------------------------------------------
+# 
+# UVM_INFO inp_monitor.sv(32) @ 65: uvm_test_top.env_h.inp_agt_h.mon_h [INPUT_MONITOR] Input MONITOR
+# -------------------------------------
+# Name            Type      Size  Value
+# -------------------------------------
+# drv2mon         trans     -     @805 
+#   Clock Enable  integral  1     1    
+#   INPUT_A       integral  8     'd100
+#   INPUT_B       integral  8     129  
+#   INPUT_VALID   integral  2     3    
+#   COMMAND       integral  4     12   
+#   MODE          integral  1     'd0  
+#   CIN           integral  1     'd0  
+#   RESULT        integral  9     'dX  
+#   ERROR         integral  1     'dX  
+#   OFLOW         integral  1     'dX  
+#   COUT          integral  1     'dX  
+#   GREATER       integral  1     'dX  
+#   EQUALITY      integral  1     'dX  
+#   LESSER        integral  1     'dX  
+# -------------------------------------
+# 
+# UVM_INFO out_monitor.sv(31) @ 65: uvm_test_top.env_h.out_agt_h.mon_h [OUTPUT_MONITOR] OUTPUT MONITOR
+# -------------------------------------
+# Name            Type      Size  Value
+# -------------------------------------
+# rd_data         trans     -     @799 
+#   Clock Enable  integral  1     1    
+#   INPUT_A       integral  8     'd10 
+#   INPUT_B       integral  8     'd5  
+#   INPUT_VALID   integral  2     3    
+#   COMMAND       integral  4     9    
+#   MODE          integral  1     1    
+#   CIN           integral  1     'd0  
+#   RESULT        integral  9     'd5  
+#   ERROR         integral  1     'd0  
+#   OFLOW         integral  1     'd0  
+#   COUT          integral  1     'd0  
+#   GREATER       integral  1     'd0  
+#   EQUALITY      integral  1     'd0  
+#   LESSER        integral  1     'd0  
+# -------------------------------------
+# 
+# UVM_INFO scoreboard.sv(22) @ 65: uvm_test_top.env_h.sb_h [REFERENCE_MODEL] REFERENCE_MODEL
+# -------------------------------------
+# Name            Type      Size  Value
+# -------------------------------------
+# drv2mon         trans     -     @805 
+#   Clock Enable  integral  1     1    
+#   INPUT_A       integral  8     'd100
+#   INPUT_B       integral  8     129  
+#   INPUT_VALID   integral  2     3    
+#   COMMAND       integral  4     12   
+#   MODE          integral  1     'd0  
+#   CIN           integral  1     'd0  
+#   RESULT        integral  9     'd200
+#   ERROR         integral  1     1    
+#   OFLOW         integral  1     'dX  
+#   COUT          integral  1     'dX  
+#   GREATER       integral  1     'dX  
+#   EQUALITY      integral  1     'dX  
+#   LESSER        integral  1     'dX  
+# -------------------------------------
+# 
+# 
+#  RES IS NOT MATCHING
+# 
+#  ERR IS NOT MATCHING
+# 
+#  COUT IS NOT MATCHING
+# 
+#  OFLOW IS NOT MATCHING
+# 
+#  Greater IS NOT MATCHING
+# 
+#  Lesser IS NOT MATCHING
+# 
+#  Equal IS NOT MATCHING
+# UVM_INFO scoreboard.sv(25) @ 65: uvm_test_top.env_h.sb_h [CHECKING OUTPUT ] CHECKING OUTPUT
+# -------------------------------------
+# Name            Type      Size  Value
+# -------------------------------------
+# rd_data         trans     -     @799 
+#   Clock Enable  integral  1     1    
+#   INPUT_A       integral  8     'd10 
+#   INPUT_B       integral  8     'd5  
+#   INPUT_VALID   integral  2     3    
+#   COMMAND       integral  4     9    
+#   MODE          integral  1     1    
+#   CIN           integral  1     'd0  
+#   RESULT        integral  9     'd5  
+#   ERROR         integral  1     'd0  
+#   OFLOW         integral  1     'd0  
+#   COUT          integral  1     'd0  
+#   GREATER       integral  1     'd0  
+#   EQUALITY      integral  1     'd0  
+#   LESSER        integral  1     'd0  
+# -------------------------------------
+# 
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 105: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   13
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [CHECKING OUTPUT ]     1
+# [INPUT_DRIVER]     4
+# [INPUT_MONITOR]     1
+# [OUTPUT_MONITOR]     1
+# [Questa UVM]     2
+# [REFERENCE_MODEL]     1
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 105 ns  Iteration: 54  Instance: /top
+# End time: 16:48:27 on Jul 30,2026, Elapsed time: 0:00:05
+# Errors: 0, Warnings: 1
