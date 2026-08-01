@@ -21,7 +21,7 @@ class alu_act_monitor extends uvm_monitor;
 
                 forever
                 begin
-                        repeat(3) @(vif.act_mon_cb)
+                        //repeat(3) @(vif.act_mon_cb)
 
                         tx.mode=vif.mode;
                         tx.cmd=vif.cmd;
