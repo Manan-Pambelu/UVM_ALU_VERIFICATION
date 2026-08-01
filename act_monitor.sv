@@ -11,7 +11,7 @@ class alu_act_monitor extends uvm_monitor;
 
         function void build_phase(uvm_phase phase);
                 super.build_phase(phase);
-                mon_aport=new("act_mon_aport", this);
+                act_mon_aport=new("act_mon_aport", this);
                 if(!uvm_config_db#(virtual alu_if)::get(this,"","alu_if",vif))
                         `uvm_fatal(get_type_name(),"accesing virtual interface in monitor failed")
         endfunction
