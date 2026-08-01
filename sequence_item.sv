@@ -6,7 +6,7 @@ class trans extends uvm_sequence_item;
  	rand bit[1:0]inp_valid;
  	rand bit[3:0]cmd;
  	rand bit mode,cin,ce;
- 	bit [8:0]res;
+	bit [15:0]res;
  	logic rst,err,oflow,cout,G,E,L;
 
  function new(string name="trans");
