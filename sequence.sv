@@ -18,7 +18,7 @@ class seq extends uvm_sequence #(trans);
 endclass
 //-------------------------------------------------------------------------------------
 
-class seq_with_res extends uvm_sequence #(trans);
+class seq_with_rst extends uvm_sequence #(trans);
         `uvm_object_utils(seq)
 
  function new(string name="seq");
@@ -30,7 +30,7 @@ class seq_with_res extends uvm_sequence #(trans);
         req=trans::type_id::create("req");
         begin
                    start_item(req);
-						assert(req.randomize() with {req.res==1});
+					assert(req.randomize() with {req.rst==1});
                    finish_item(req);
         end
 
