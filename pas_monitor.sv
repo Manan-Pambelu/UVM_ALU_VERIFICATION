@@ -1,5 +1,5 @@
 class alu_pas_monitor extends uvm_monitor;
-        `uvm_component_utils(alu_monitor)
+        `uvm_component_utils(alu_pas_monitor)
         uvm_analysis_port #(trans) pas_mon_aport;
         virtual alu_if vif;
 
