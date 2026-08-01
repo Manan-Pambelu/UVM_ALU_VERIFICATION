@@ -19,17 +19,17 @@ class trans extends uvm_sequence_item;
                 `uvm_field_int(mode,UVM_ALL_ON);
                 `uvm_field_int(cmd,UVM_DEC | UVM_ALL_ON);
                 `uvm_field_int(inp_valid,UVM_BIN | UVM_ALL_ON);
-                `uvm_field_int(opa,UVM_DEC | UVM_ALL_ON);
-                `uvm_field_int(opb,UVM_DEC | UVM_ALL_ON);
+	            `uvm_field_int(OA,UVM_DEC | UVM_ALL_ON);
+				`uvm_field_int(OB,UVM_DEC | UVM_ALL_ON);
                 `uvm_field_int(cin,UVM_ALL_ON);
 
                 `uvm_field_int(res,UVM_DEC | UVM_ALL_ON);
                 `uvm_field_int(err,UVM_ALL_ON);
                 `uvm_field_int(oflow,UVM_ALL_ON);
                 `uvm_field_int(cout,UVM_ALL_ON);
-                `uvm_field_int(g,UVM_ALL_ON);
-                `uvm_field_int(l,UVM_ALL_ON);
-                `uvm_field_int(e,UVM_ALL_ON);
+	 			`uvm_field_int(G,UVM_ALL_ON);
+				`uvm_field_int(L,UVM_ALL_ON);
+				`uvm_field_int(E,UVM_ALL_ON);
 `uvm_object_utils_end
 
 
