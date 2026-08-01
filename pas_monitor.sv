@@ -21,7 +21,7 @@ class alu_pas_monitor extends uvm_monitor;
 
                 forever
                 begin
-                        repeat(3) @(vif.pas_mon_cb)
+                        //repeat(3) @(vif.pas_mon_cb)
 
                         tx.res=vif.res;
                         tx.err=vif.err;
