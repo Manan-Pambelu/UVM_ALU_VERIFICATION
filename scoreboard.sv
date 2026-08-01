@@ -75,13 +75,13 @@ class alu_scoreboard extends uvm_scoreboard();
 				ref_output.cin = packet2.cin;
 
 				if(packet2.rst) begin
-					ref_output.res = 'bz;
-					ref_output.oflow = 1'bz;
-					ref_output.cout = 1'bz;
-					ref_output.g = 1'bz;
-					ref_output.l = 1'bz;
-					ref_output.e = 1'bz;
-					ref_output.err = 1'bz;
+					ref_output.res = 'b0;
+					ref_output.oflow = 1'b0;
+					ref_output.cout = 1'b0;
+					ref_output.g = 1'b0;
+					ref_output.l = 1'b0;
+					ref_output.e = 1'b0;
+					ref_output.err = 1'b0;
 				end
 				else begin
 					if(packet2.ce) begin
@@ -243,8 +243,7 @@ class alu_scoreboard extends uvm_scoreboard();
 												16'h00FF &
 												({1'b0, (packet2.OA << SHIFT_BY |
 												packet2.OA >> (`WIDTH - SHIFT_BY))});
-											ref_output.err =
-												|packet2.OB[`WIDTH-1:`POW_2_N+1];
+											ref_output.err =(packet2.OPB[7:4]!=4'b0)?1:0;
 										end
 
 										4'd13: begin
@@ -253,8 +252,7 @@ class alu_scoreboard extends uvm_scoreboard();
 												16'h00FF &
 												({1'b0, packet2.OA << (`WIDTH - SHIFT_BY) |
 												packet2.OA >> SHIFT_BY});
-											ref_output.err =
-												|packet2.OB[`WIDTH-1:`POW_2_N+1];
+											ref_output.err =(packet2.OPB[7:4]!=4'b0)?1:0;
 										end
 
 									endcase
