@@ -356,7 +356,7 @@ class alu_scoreboard extends uvm_scoreboard();
 				$display("g\t\t|\t\t%b\t\t|\t\t%b", ref_output.g, packet1.g);
 				$display("l\t\t|\t\t%b\t\t|\t\t%b", ref_output.l, packet1.l);
 				$display("e\t\t|\t\t%b\t\t|\t\t%b", ref_output.e, packet1.e);
-				if((packet1.res === ref_model_output.res) && (packet1.err === ref_model_output.err) && (packet1.oflow === ref_model_output.oflow) && (packet1.cout === ref_model_output.cout) && (packet1.g === ref_model_output.g) && (packet1.l === ref_model_output.l) && (packet1.e === ref_model_output.e))
+				if((packet1.res === ref_output.res) && (packet1.err === ref_output.err) && (packet1.oflow === ref_output.oflow) && (packet1.cout === ref_output.cout) && (packet1.g === ref_output.g) && (packet1.l === ref_output.l) && (packet1.e === ref_output.e))
 				begin
 					`uvm_info(get_type_name(), $sformatf("\n----------------------------------------------------------------------------"), UVM_NONE);
 					$display("	           		TEST PASS																	");
