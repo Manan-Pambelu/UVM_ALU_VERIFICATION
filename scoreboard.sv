@@ -1,6 +1,6 @@
 `include "defines.sv"
-`uvm_analysis_imp_decl(_from_drv)
-`uvm_analysis_imp_decl(_from_mon)
+`uvm_analysis_imp_decl(_from_act_drv)
+`uvm_analysis_imp_decl(_from_pas_mon)
 
 class alu_scoreboard extends uvm_scoreboard();
 
@@ -8,16 +8,16 @@ class alu_scoreboard extends uvm_scoreboard();
 
     logic [2:0] SHIFT_BY;
 
-    // --- Internal State Variables ---
-    bit [7:0] oprd1;          
-    bit [7:0] oprd2;          
-    int wait_cycles;          
-    bit waiting_for_opA;      
-    bit waiting_for_opB;      
-    bit execute_op;           
+    //Internal State Variables 
+    bit [7:0] oprd1;          // Internal register for OPA
+    bit [7:0] oprd2;          // Internal register for OPB
+    int wait_cycles;          // Counter for the 16-cycle timeout
+    bit waiting_for_opA;      // State flag
+    bit waiting_for_opB;      // State flag
+    bit execute_op;           // Flag to trigger execution
 
-    uvm_analysis_imp_from_drv #(trans, alu_scoreboard) inp_analysis_export;
-    uvm_analysis_imp_from_mon #(trans, alu_scoreboard) out_analysis_export;
+    uvm_analysis_imp_from_act_mon #(trans, alu_scoreboard) inp_analysis_export;
+    uvm_analysis_imp_from_pas_mon #(trans, alu_scoreboard) out_analysis_export;
 
     trans driver_packet[$];
     trans monitor_packet[$];
@@ -43,18 +43,18 @@ class alu_scoreboard extends uvm_scoreboard();
         waiting_for_opB = 0;
     endfunction
     
-    virtual function void write_from_mon(trans t);
+    virtual function void write_from_pas__mon(trans t);
         monitor_packet.push_back(t);
     endfunction
 
-    virtual function void write_from_drv(trans u);
+    virtual function void write_from_act_mon(trans u);
         condition_packet = u;
         driver_packet.push_back(u);
     endfunction
 
     virtual task run_phase(uvm_phase phase);
-        trans packet2; // From Driver
-        trans packet1; // From Monitor
+        trans packet2; // From act monitor
+        trans packet1; // From pas monitor
 
         super.run_phase(phase);
 
@@ -65,7 +65,7 @@ class alu_scoreboard extends uvm_scoreboard();
             packet2 = driver_packet.pop_front();
             packet1 = monitor_packet.pop_front();
 
-            // --- 1. SET DEFAULT / CURRENT STATUS ---
+            //driving to the ref model
             ref_output.rst = packet2.rst;
             ref_output.ce = packet2.ce;
             ref_output.mode = packet2.mode;
@@ -73,9 +73,8 @@ class alu_scoreboard extends uvm_scoreboard();
             ref_output.inp_valid = packet2.inp_valid;
             ref_output.cin = packet2.cin;
             execute_op = 0; 
-            ref_output.err = 1'b0; // Default clear error
+            ref_output.err = 1'b0; // default let the error to be 0
 
-            // --- 2. RESET BEHAVIOR ---
             if(packet2.rst) begin
                 ref_output.res = 16'b0; 
                 ref_output.oflow = 1'b0;
@@ -94,13 +93,11 @@ class alu_scoreboard extends uvm_scoreboard();
                 prev_output.copy(ref_output); // Update previous state
             end
             
-            // --- 3. CLOCK ENABLE ACTIVE ---
             else if(packet2.ce) begin
                 
-                // --- A. Input Capture & Timeout State Machine ---
                 case (packet2.inp_valid)
                     2'b01: begin
-                        oprd1 = packet2.OA; // Capture latest OPA
+                        oprd1 = packet2.OA; 
                         if (waiting_for_opA) begin
                             execute_op = 1; 
                             waiting_for_opA = 0;
