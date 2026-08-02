@@ -1,9 +1,9 @@
 class alu_env extends uvm_env;
 	`uvm_component_utils(alu_env)
  
- act_agent act_agt_h;
- pas_agent pas_agt_h;
- scoreboard scb_h;
+ alu_act_agent act_agt_h;
+ alu_pas_agent pas_agt_h;
+ alu_scoreboard scb_h;
 
 
  function new(string name="env",uvm_component parent);
@@ -21,8 +21,8 @@ class alu_env extends uvm_env;
 
  function void connect_phase(uvm_phase phase);
 	super.connect_phase(phase);
-	act_agt_h.act_mon_h.act_mon_aport.connect(scb_h.act_mon_fifo.inp_analysis_export);
-	pas_agt_h.pas_mon_h.pas_mon_aport.connect(scb_h.pas_mon_fifo.out_analysis_export);
+	act_agt_h.act_mon_h.act_mon_aport.connect(scb_h.inp_analysis_export);
+	pas_agt_h.pas_mon_h.pas_mon_aport.connect(scb_h.out_analysis_export);
  endfunction
 
 endclass

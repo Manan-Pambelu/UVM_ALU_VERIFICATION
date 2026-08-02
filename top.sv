@@ -8,18 +8,18 @@
 
 	bit clk;
 
-	alu_if DUV_IF(clk);
+	alu_if vif(clk);
 
    
  //instatiate DUV
-        ALU_DESIGN DUV(.OPA(DUV_IF.OA),.OPB(DUV_IF.OB),.CLK(clk),.RST(DUV_IF.rst),.CE(DUV_IF.ce),.MODE(DUV_IF.mode),
-		.CIN(DUV_IF.cin),.CMD(DUV_IF.cmd),.INP_VALID(DUV_IF.inp_valid),.RES(DUV_IF.res),.COUT(DUV_IF.cout),
-		.OFLOW(DUV_IF.oflow),.G(DUV_IF.G),.E(DUV_IF.E),.L(DUV_IF.L),.ERR(DUV_IF.err));
+        ALU_DESIGN DUV(.OPA(vif.OA),.OPB(vif.OB),.CLK(clk),.RST(vif.rst),.CE(vif.ce),.MODE(vif.mode),
+		.CIN(vif.cin),.CMD(vif.cmd),.INP_VALID(vif.inp_valid),.RES(vif.res),.COUT(vif.cout),
+		.OFLOW(vif.oflow),.G(vif.G),.E(vif.E),.L(vif.L),.ERR(vif.err));
 
 
  	initial
 	begin
-		uvm_config_db#(virtual alu_if)::set(null,"*","alu_if",DUV_IF);
+		uvm_config_db#(virtual alu_if)::set(null,"*","alu_if",vif);
 		$dumpfile("waves.fsdb");
 		  $dumpvars;
 

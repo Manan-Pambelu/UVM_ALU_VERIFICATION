@@ -2,7 +2,7 @@ class alu_pas_agent extends uvm_agent;
 
         `uvm_component_utils(alu_pas_agent)
 
-	alu_monitor pas_mon_h;
+	alu_pas_monitor pas_mon_h;
 
         function new(string name="alu_pas_agent", uvm_component parent);
                 super.new(name,parent);

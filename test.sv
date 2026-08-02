@@ -1,87 +1,82 @@
+class alu_test extends uvm_test;
+	`uvm_component_utils(alu_test)
 
-class test extends uvm_test;
-	`uvm_component_utils(test)
+	alu_env env_h;
+	virtual alu_if vif;
 
- env env_h;
- alu_config m_cfg;
+	function new(string name="alu_test", uvm_component parent);
+		super.new(name, parent);
+	endfunction
 
- function new(string name="test",uvm_component parent);
-	super.new(name,parent);
- endfunction
+	function void build_phase(uvm_phase phase);
+		super.build_phase(phase);
+		
+		env_h=alu_env::type_id::create("env_h",this);
 
- function void build_phase(uvm_phase phase);
-	super.build_phase(phase);
+		if(!uvm_config_db #(virtual alu_if)::get(this,"","alu_if",vif))
+			`uvm_fatal(get_type_name(),"configuration failed")
+	endfunction
 
-  m_cfg=alu_config::type_id::create("m_cfg");
-  //virtual_get
-  if(!uvm_config_db#(virtual alu_if)::get(this,"","alu_if",m_cfg.vif))
-	`uvm_fatal(get_type_name,"Can't get the interface")
-  m_cfg.input_agent_is_active=UVM_ACTIVE;
-  m_cfg.output_agent_is_active=UVM_PASSIVE;
-
-  uvm_config_db#(alu_config)::set(this,"*","alu_config",m_cfg);
-
-  env_h=env::type_id::create("env_h",this);
-
- endfunction
-
- function void end_of_elaboration_phase(uvm_phase phase);
-  super.end_of_elaboration_phase(phase);
-   uvm_top.print_topology();
-endfunction
-
-
-
+	function void end_of_elaboration_phase(uvm_phase phase);
+		super.end_of_elaboration_phase(phase);
+		uvm_top.print_topology();
+	endfunction
 endclass
 
-
-class test1 extends test;
+class test1 extends alu_test;
 	`uvm_component_utils(test1)
+	 seq seq_h;
+	 seq_with_rst swr_h;
+	 seq_without_ce  swc_h;
+	 seq_with_arithmatic swa_h;
+	 seq_with_logical swl_h;
+	 seq_timeout_test stt_h;
+	 seq_delayed_valid sdv_h;
 
-	seq s1;
-	seq_1 s2;
-	cycle_seq s3;
-	err_seq e1;
+	function new(string name="", uvm_component parent);
+		super.new(name,parent);
+	endfunction
 
- function new(string name="test1",uvm_component parent);
-	super.new(name,parent);
- endfunction
+	function void build_phase(uvm_phase phase);
+		super.build_phase(phase);
+	endfunction
 
+	task run_phase(uvm_phase phase);
+		super.run_phase(phase);
+		
+		phase.raise_objection(this);
 
- function void build_phase(uvm_phase phase);
-	super.build_phase(phase);
- endfunction
+		seq_h=seq::type_id::create("seq_h", this);
+		swr_h=seq_with_rst::type_id::create("swr_h", this);
+		swc_h=seq_without_ce::type_id::create("swc_h", this);
+		swa_h=seq_with_arithmatic::type_id::create("swa_h", this);
+		swl_h=seq_with_logical::type_id::create("swl_h", this);
+		stt_h=seq_timeout_test::type_id::create("stt_h", this);
+		sdv_h=seq_delayed_valid::type_id::create("sdv_h", this);
 
+		fork 
+			seq_h.start(env_h.act_agt_h.sqr_h);
 
- task run_phase(uvm_phase phase);
+			swr_h.start(env_h.act_agt_h.sqr_h);
 
-	phase.raise_objection(this);
-	s1=seq::type_id::create("s1");
-	s2=seq_1::type_id::create("s2");
-	s3=cycle_seq::type_id::create("s3");
-	e1=err_seq::type_id::create("e1");
+			swc_h.start(env_h.act_agt_h.sqr_h);
 
+			swa_h.start(env_h.act_agt_h.sqr_h);
 
+			swl_h.start(env_h.act_agt_h.sqr_h);
 
+			stt_h.start(env_h.act_agt_h.sqr_h);
 
-	//s1.start(env_h.inp_agt_h.seqr_h);
+			sdv_h.start(env_h.act_agt_h.sqr_h);
 
-	fork
-//	begin
-	s1.start(env_h.inp_agt_h.seqr_h);
-//	#25;
-	s2.start(env_h.inp_agt_h.seqr_h);
-//	end
-	s3.start(env_h.inp_agt_h.seqr_h);
-	e1.start(env_h.inp_agt_h.seqr_h);
-	join
-	#50;
-	phase.drop_objection(this);
+		join
 
-
- endtask
-
+		phase.drop_objection(this);
+	endtask
 endclass
- 
+
+	 
+
+
 
 

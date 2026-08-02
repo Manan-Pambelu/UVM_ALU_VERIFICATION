@@ -27,9 +27,9 @@ class alu_pas_monitor extends uvm_monitor;
                         tx.err=vif.err;
                         tx.oflow=vif.oflow;
                         tx.cout=vif.cout;
-                        tx.g=vif.g;
-                        tx.l=vif.l;
-                        tx.e=vif.e;
+                        tx.G=vif.G;
+                        tx.L=vif.L;
+                        tx.E=vif.E;
 
                         pas_mon_aport.write(tx);
                 end

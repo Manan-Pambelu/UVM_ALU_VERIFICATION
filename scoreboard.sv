@@ -1,8 +1,8 @@
 `include "defines.sv"
-`uvm_analysis_imp_decl(_from_act_drv)
+`uvm_analysis_imp_decl(_from_act_mon)
 `uvm_analysis_imp_decl(_from_pas_mon)
 
-class alu_scoreboard extends uvm_scoreboard();
+class alu_scoreboard extends uvm_scoreboard;
 
     `uvm_component_utils(alu_scoreboard)
 
@@ -79,9 +79,9 @@ class alu_scoreboard extends uvm_scoreboard();
                 ref_output.res = 16'b0; 
                 ref_output.oflow = 1'b0;
                 ref_output.cout = 1'b0;
-                ref_output.g = 1'b0;
-                ref_output.l = 1'b0;
-                ref_output.e = 1'b0;
+                ref_output.G = 1'b0;
+                ref_output.L = 1'b0;
+                ref_output.E = 1'b0;
                 ref_output.err = 1'b0;
                 
                 oprd1 = 0;
@@ -149,9 +149,9 @@ class alu_scoreboard extends uvm_scoreboard();
                     // Clear flags before execution
                     ref_output.oflow = 1'b0;
                     ref_output.cout = 1'b0;
-                    ref_output.g = 1'b0;
-                    ref_output.l = 1'b0;
-                    ref_output.e = 1'b0;
+                    ref_output.G = 1'b0;
+                    ref_output.L = 1'b0;
+                    ref_output.E = 1'b0;
                     ref_output.err = 1'b0;
 
                     if(packet2.mode == 1'b1) begin // --- ARITHMETIC ---
@@ -178,11 +178,11 @@ class alu_scoreboard extends uvm_scoreboard();
                             4'b0111: ref_output.res = oprd2 - 1; // DEC_B
                             4'b1000: begin      // CMP
                                 if(oprd1 == oprd2)
-                                    {ref_output.g, ref_output.e, ref_output.l} = 3'b010;
+                                    {ref_output.G, ref_output.E, ref_output.L} = 3'b010;
                                 else if(oprd1 > oprd2)
-                                    {ref_output.g, ref_output.e, ref_output.l} = 3'b100;
+                                    {ref_output.G, ref_output.E, ref_output.L} = 3'b100;
                                 else
-                                    {ref_output.g, ref_output.e, ref_output.l} = 3'b001;
+                                    {ref_output.G, ref_output.E, ref_output.L} = 3'b001;
                             end
                             4'b1001: ref_output.res = (oprd1 + 1) * (oprd2 + 1); // MUL_INC
                             4'b1010: ref_output.res = (oprd1 << 1) * oprd2;      // MUL_SHL
@@ -225,9 +225,9 @@ class alu_scoreboard extends uvm_scoreboard();
                     ref_output.res = prev_output.res;
                     ref_output.oflow = prev_output.oflow;
                     ref_output.cout = prev_output.cout;
-                    ref_output.g = prev_output.g;
-                    ref_output.l = prev_output.l;
-                    ref_output.e = prev_output.e;
+                    ref_output.G = prev_output.G;
+                    ref_output.L = prev_output.L;
+                    ref_output.E = prev_output.E;
                     // Note: 'err' flag is handled dynamically in the wait block above
                 end
             end // end of if(ce)
@@ -236,9 +236,9 @@ class alu_scoreboard extends uvm_scoreboard();
                 ref_output.res = prev_output.res;
                 ref_output.oflow = prev_output.oflow;
                 ref_output.cout = prev_output.cout;
-                ref_output.g = prev_output.g;
-                ref_output.l = prev_output.l;
-                ref_output.e = prev_output.e;
+		ref_output.G = prev_output.G;
+                ref_output.L = prev_output.L;
+                ref_output.E = prev_output.E;
                 ref_output.err = prev_output.err;
             end
 
@@ -260,13 +260,13 @@ class alu_scoreboard extends uvm_scoreboard();
                 $display("err\t\t|\t\t%b\t\t|\t\t%b", ref_output.err, packet1.err);
                 $display("oflow\t\t|\t\t%b\t\t|\t\t%b", ref_output.oflow, packet1.oflow);
                 $display("cout\t\t|\t\t%b\t\t|\t\t%b", ref_output.cout, packet1.cout);
-                $display("g\t\t|\t\t%b\t\t|\t\t%b", ref_output.g, packet1.g);
-                $display("e\t\t|\t\t%b\t\t|\t\t%b", ref_output.e, packet1.e);
-                $display("l\t\t|\t\t%b\t\t|\t\t%b", ref_output.l, packet1.l);
+                $display("g\t\t|\t\t%b\t\t|\t\t%b", ref_output.G, packet1.G);
+                $display("e\t\t|\t\t%b\t\t|\t\t%b", ref_output.E, packet1.E);
+                $display("l\t\t|\t\t%b\t\t|\t\t%b", ref_output.L, packet1.L);
                 
                 if((packet1.res === ref_output.res) && (packet1.err === ref_output.err) && 
                    (packet1.oflow === ref_output.oflow) && (packet1.cout === ref_output.cout) && 
-                   (packet1.g === ref_output.g) && (packet1.l === ref_output.l) && (packet1.e === ref_output.e))
+                   (packet1.G === ref_output.G) && (packet1.L === ref_output.L) && (packet1.E === ref_output.E))
                 begin
                     `uvm_info(get_type_name(), "\n----------------------------------------------------------------------------", UVM_NONE);
                     $display("                  TEST PASS                                                                    ");
