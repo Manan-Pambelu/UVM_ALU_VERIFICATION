@@ -16,6 +16,13 @@ class alu_scoreboard extends uvm_scoreboard();
 	trans monitor_packet[$];
 	trans ref_output, prev_output, condition_packet;
 
+	bit [7:0] oprd1;          // Internal register for OPA
+    bit [7:0] oprd2;          // Internal register for OPB
+    int wait_cycles;          // Counter for the 16-cycle timeout
+    bit waiting_for_opA;      // State flag
+    bit waiting_for_opB;      // State flag
+    bit execute_op;           // Flag to trigger execution
+
 	function new(string name = "alu_scoreboard", uvm_component parent = null);
 		super.new(name, parent);
 	endfunction
@@ -42,6 +49,107 @@ class alu_scoreboard extends uvm_scoreboard();
 	endfunction
 
 	virtual task run_phase(uvm_phase phase);
+
+		virtual task run_phase(uvm_phase phase);
+        trans packet2;
+        trans packet1;
+
+        super.run_phase(phase);
+
+        forever begin
+            wait(driver_packet.size() > 0);
+            wait(monitor_packet.size() > 0);
+            
+            packet2 = driver_packet.pop_front();
+            packet1 = monitor_packet.pop_front();
+
+            // Reference model
+            begin
+                ref_output.rst = packet2.rst;
+                ref_output.ce = packet2.ce;
+                ref_output.mode = packet2.mode;
+                ref_output.cmd = packet2.cmd;
+                ref_output.inp_valid = packet2.inp_valid;
+                ref_output.cin = packet2.cin;
+                execute_op = 0; // Default to not executing
+
+                if(packet2.rst) begin
+                    ref_output.res = 16'b0;
+                    ref_output.oflow = 1'b0;
+                    ref_output.cout = 1'b0;
+                    ref_output.g = 1'b0;
+                    ref_output.l = 1'b0;
+                    ref_output.e = 1'b0;
+                    ref_output.err = 1'b0;
+                    
+                    // Reset internal state
+                    oprd1 = 0;
+                    oprd2 = 0;
+                    wait_cycles = 0;
+                    waiting_for_opA = 0;
+                    waiting_for_opB = 0;
+                end
+                else if(packet2.ce) begin
+                    
+                    // --- INPUT CAPTURE & TIMEOUT LOGIC ---
+                    case (packet2.inp_valid)
+                        2'b01: begin
+                            oprd1 = packet2.OA; // Capture latest OPA[cite: 1]
+                            if (waiting_for_opA) begin
+                                execute_op = 1; // We were waiting for A, now we have both
+                                waiting_for_opA = 0;
+                            end else begin
+                                waiting_for_opB = 1; // Now waiting for B
+                            end
+                            wait_cycles = 0; // Reset timeout because an operand arrived[cite: 1]
+                        end
+                        
+                        2'b10: begin
+                            oprd2 = packet2.OB; // Capture latest OPB[cite: 1]
+                            if (waiting_for_opB) begin
+                                execute_op = 1; // We were waiting for B, now we have both
+                                waiting_for_opB = 0;
+                            end else begin
+                                waiting_for_opA = 1; // Now waiting for A
+                            end
+                            wait_cycles = 0; // Reset timeout[cite: 1]
+                        end
+                        
+                        2'b11: begin
+                            oprd1 = packet2.OA; // Capture both simultaneously[cite: 1]
+                            oprd2 = packet2.OB;
+                            waiting_for_opA = 0;
+                            waiting_for_opB = 0;
+                            wait_cycles = 0;
+                            execute_op = 1; // Execute immediately
+                        end
+                        
+                        default: begin
+                            if (waiting_for_opA || waiting_for_opB) begin
+                                wait_cycles++;
+                                if (wait_cycles > 16) begin
+                                    ref_output.err = 1'b1; // Timeout asserted[cite: 1]
+                                    waiting_for_opA = 0;
+                                    waiting_for_opB = 0;
+                                    wait_cycles = 0;
+                                end
+                            end else begin
+                                // Spec: "Others: Clears captured operands"[cite: 1]
+                                oprd1 = 0;
+                                oprd2 = 0;
+                            end
+                        end
+                    endcase
+
+
+
+
+
+
+
+
+
+		
 		trans packet2;
 		trans packet1;
 
