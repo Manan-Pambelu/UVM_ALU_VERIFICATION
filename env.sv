@@ -21,8 +21,8 @@ class alu_env extends uvm_env;
 
  function void connect_phase(uvm_phase phase);
 	super.connect_phase(phase);
-	act_agt_h.act_mon_h.act_mon_aport.connect(scb_h.inp_analysis_export);
-	pas_agt_h.pas_mon_h.pas_mon_aport.connect(scb_h.out_analysis_export);
+	act_agt_h.act_mon_h.act_mon_aport.connect(scb_h.inp_fifo.analysis_export);
+	pas_agt_h.pas_mon_h.pas_mon_aport.connect(scb_h.out_fifo.analysis_export);
  endfunction
 
 endclass

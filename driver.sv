@@ -21,16 +21,18 @@ class alu_driver extends uvm_driver #(trans);
         forever begin
             seq_item_port.get_next_item(req);
 
-            vif.cmd       <= req.cmd;
-            vif.mode      <= req.mode;
-            vif.res       <= req.res;
-            vif.ce        <= req.ce;
-            vif.OA        <= req.OA;
-            vif.OB        <= req.OB;
-            vif.cin       <= req.cin;
+	    vif.rst <= req.rst;
+            vif.cmd <= req.cmd;
+            vif.mode <= req.mode;
+            vif.ce   <= req.ce;
+            vif.OA   <= req.OA;
+            vif.OB   <= req.OB;
+            vif.cin  <= req.cin;
             vif.inp_valid <= req.inp_valid;
 
-            @(posedge vif.CLK);
+		`uvm_info(get_type_name(), $sformatf("Driving -> rst: %b | ce: %b | mode: %b | cmd: %0d | valid: %b | OA: %0d | OB: %0d | cin: %b",req.rst, req.ce, req.mode, req.cmd, req.inp_valid, req.OA, req.OB, req.cin), UVM_LOW)
+
+            @(posedge vif.driver_cb);
 
 			driven_data.write(req);  //if driven data values need to be captured 
 

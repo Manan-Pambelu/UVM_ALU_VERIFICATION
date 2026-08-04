@@ -21,18 +21,28 @@ class alu_act_monitor extends uvm_monitor;
 
                 forever
                 begin
-                        //repeat(3) @(vif.act_mon_cb)
+
+                        @(vif.act_mon_cb)
+
+			//if(vif.inp_valid==01 || vif.inp_valid==10 || vif.inp_valid==11)
+			//begin
+
+			tx=trans::type_id::create("tx");
 
                         tx.mode=vif.mode;
                         tx.cmd=vif.cmd;
-                        tx.res=vif.res;
+                        tx.rst=vif.rst;
                         tx.ce=vif.ce;
                         tx.OA=vif.OA;
                         tx.OB=vif.OB;
                         tx.inp_valid=vif.inp_valid;
                         tx.cin=vif.cin;
+			
 
                         act_mon_aport.write(tx);
+			//end
+		
+
                 end
         endtask
 endclass

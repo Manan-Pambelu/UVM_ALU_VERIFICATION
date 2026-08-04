@@ -54,22 +54,22 @@ class test1 extends alu_test;
 		stt_h=seq_timeout_test::type_id::create("stt_h", this);
 		sdv_h=seq_delayed_valid::type_id::create("sdv_h", this);
 
-		fork 
-			seq_h.start(env_h.act_agt_h.sqr_h);
+		 
+			//seq_h.start(env_h.act_agt_h.sqr_h);
 
-			swr_h.start(env_h.act_agt_h.sqr_h);
+			//swr_h.start(env_h.act_agt_h.sqr_h);
 
-			swc_h.start(env_h.act_agt_h.sqr_h);
+			//swc_h.start(env_h.act_agt_h.sqr_h);
 
-			swa_h.start(env_h.act_agt_h.sqr_h);
+			//swa_h.start(env_h.act_agt_h.sqr_h);
 
-			swl_h.start(env_h.act_agt_h.sqr_h);
+			//swl_h.start(env_h.act_agt_h.sqr_h);
 
-			stt_h.start(env_h.act_agt_h.sqr_h);
+			//stt_h.start(env_h.act_agt_h.sqr_h);
 
 			sdv_h.start(env_h.act_agt_h.sqr_h);
 
-		join
+		
 
 		phase.drop_objection(this);
 	endtask

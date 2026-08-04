@@ -1,22 +1,709 @@
 # vsim -c top 
-# Start time: 15:48:19 on Aug 02,2026
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Error (suppressible): (vopt-7063) top.sv(15): Failed to find 'DUV_IF' in hierarchical name '/DUV_IF/OA'.
-# ** Error (suppressible): (vopt-7063) top.sv(15): Failed to find 'DUV_IF' in hierarchical name '/DUV_IF/OB'.
-# ** Error (suppressible): (vopt-7063) top.sv(15): Failed to find 'DUV_IF' in hierarchical name '/DUV_IF/rst'.
-# ** Error (suppressible): (vopt-7063) top.sv(15): Failed to find 'DUV_IF' in hierarchical name '/DUV_IF/ce'.
-# ** Error (suppressible): (vopt-7063) top.sv(15): Failed to find 'DUV_IF' in hierarchical name '/DUV_IF/mode'.
-# ** Error (suppressible): (vopt-7063) top.sv(16): Failed to find 'DUV_IF' in hierarchical name '/DUV_IF/cin'.
-# ** Error (suppressible): (vopt-7063) top.sv(16): Failed to find 'DUV_IF' in hierarchical name '/DUV_IF/cmd'.
-# ** Error (suppressible): (vopt-7063) top.sv(16): Failed to find 'DUV_IF' in hierarchical name '/DUV_IF/inp_valid'.
-# ** Error (suppressible): (vopt-7063) top.sv(16): Failed to find 'DUV_IF' in hierarchical name '/DUV_IF/res'.
-# ** Error (suppressible): (vopt-7063) top.sv(16): Failed to find 'DUV_IF' in hierarchical name '/DUV_IF/cout'.
-# ** Error (suppressible): (vopt-7063) top.sv(17): Failed to find 'DUV_IF' in hierarchical name '/DUV_IF/oflow'.
-# ** Error (suppressible): (vopt-7063) top.sv(17): Failed to find 'DUV_IF' in hierarchical name '/DUV_IF/G'.
-# ** Error (suppressible): (vopt-7063) top.sv(17): Failed to find 'DUV_IF' in hierarchical name '/DUV_IF/E'.
-# ** Error (suppressible): (vopt-7063) top.sv(17): Failed to find 'DUV_IF' in hierarchical name '/DUV_IF/L'.
-# ** Error (suppressible): (vopt-7063) top.sv(17): Failed to find 'DUV_IF' in hierarchical name '/DUV_IF/err'.
-# Optimization failed
-# Error loading design
-# End time: 15:48:20 on Aug 02,2026, Elapsed time: 0:00:01
-# Errors: 15, Warnings: 0
+# Start time: 12:16:53 on Aug 04,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: top.sv(15): (vopt-2241) Connection width does not match width of port 'RES'. The port definition is at: DUT.sv(1).
+# //  Questa Sim
+# //  Version 10.6c linux Jul 25 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.alu_if(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.test_pkg(fast)
+# Loading work.top(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test test1...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# ------------------------------------------------------------------
+# Name                       Type                        Size  Value
+# ------------------------------------------------------------------
+# uvm_test_top               test1                       -     @471 
+#   env_h                    alu_env                     -     @478 
+#     act_agt_h              alu_act_agent               -     @486 
+#       act_mon_h            alu_act_monitor             -     @640 
+#         act_mon_aport      uvm_analysis_port           -     @647 
+#       drv_h                alu_driver                  -     @617 
+#         driven_data        uvm_analysis_port           -     @657 
+#         rsp_port           uvm_analysis_port           -     @632 
+#         seq_item_port      uvm_seq_item_pull_port      -     @624 
+#       sqr_h                alu_sequencer               -     @508 
+#         rsp_export         uvm_analysis_export         -     @515 
+#         seq_item_export    uvm_seq_item_pull_imp       -     @609 
+#         arbitration_queue  array                       0     -    
+#         lock_queue         array                       0     -    
+#         num_last_reqs      integral                    32    'd1  
+#         num_last_rsps      integral                    32    'd1  
+#     pas_agt_h              alu_pas_agent               -     @493 
+#       pas_mon_h            alu_pas_monitor             -     @671 
+#         pas_mon_aport      uvm_analysis_port           -     @678 
+#     scb_h                  alu_scoreboard              -     @500 
+#       inp_fifo             uvm_tlm_analysis_fifo #(T)  -     @687 
+#         analysis_export    uvm_analysis_imp            -     @726 
+#         get_ap             uvm_analysis_port           -     @718 
+#         get_peek_export    uvm_get_peek_imp            -     @702 
+#         put_ap             uvm_analysis_port           -     @710 
+#         put_export         uvm_put_imp                 -     @694 
+#       out_fifo             uvm_tlm_analysis_fifo #(T)  -     @734 
+#         analysis_export    uvm_analysis_imp            -     @773 
+#         get_ap             uvm_analysis_port           -     @765 
+#         get_peek_export    uvm_get_peek_imp            -     @749 
+#         put_ap             uvm_analysis_port           -     @757 
+#         put_export         uvm_put_imp                 -     @741 
+# ------------------------------------------------------------------
+# 
+# UVM_INFO driver.sv(33) @ 0: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 182 | OB: 2 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 5: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 182 | OB: 2 | cin: 0 | res: 0
+# UVM_INFO scoreboard.sv(149) @ 5: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 182 | dut_out=0
+# UVM_INFO scoreboard.sv(216) @ 5: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 5: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 54 | OB: 197 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 15: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 54 | OB: 197 | cin: 1 | res: 0
+# UVM_INFO scoreboard.sv(149) @ 15: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 54 | dut_out=0
+# UVM_INFO scoreboard.sv(216) @ 15: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 15: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 56 | OB: 167 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 25: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 56 | OB: 167 | cin: 0 | res: 0
+# UVM_INFO scoreboard.sv(149) @ 25: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 56 | dut_out=0
+# UVM_INFO scoreboard.sv(216) @ 25: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 25: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 244 | OB: 87 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 35: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 244 | OB: 87 | cin: 0 | res: 0
+# UVM_INFO scoreboard.sv(149) @ 35: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 0 | OB: 0 | cin: 0 | res: 143 | dut_out=0
+# --------------|-------------------------------|----------------------------
+# OA 		|		244		|		-
+# OB 		|		87		|		-
+# cin		|		0		|		-
+# Stored OPRD1	|		56		|		-
+# Stored OPRD2	|		87		|		-
+# --------------|-------------------------------|----------------------------
+# Field		|	Reference Output	|	Actual Response
+# --------------|-------------------------------|----------------------------
+# rst		|		0		|		0
+# ce		|		1		|		1
+# mode		|		1		|		1
+# cmd		|		0		|		0
+# inp_valid	|		10		|		10
+# res		|		56		|		0
+# err		|		0		|		0
+# oflow		|		0		|		0
+# cout		|		0		|		0
+# g		|		0		|		0
+# e		|		0		|		0
+# l		|		0		|		0
+# UVM_ERROR scoreboard.sv(250) @ 35: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ----------------------------------------------------------------------------
+#                   TEST FAILED
+# ----------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 35: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 139 | OB: 43 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 45: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 139 | OB: 43 | cin: 1 | res: 143
+# UVM_INFO scoreboard.sv(149) @ 45: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 226 | dut_out=143
+# UVM_INFO scoreboard.sv(216) @ 45: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 45: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 186 | OB: 195 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 55: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 186 | OB: 195 | cin: 0 | res: 226
+# UVM_INFO scoreboard.sv(149) @ 55: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 273 | dut_out=226
+# UVM_INFO scoreboard.sv(216) @ 55: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 55: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 110 | OB: 181 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 65: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 110 | OB: 181 | cin: 1 | res: 17
+# UVM_INFO scoreboard.sv(149) @ 65: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 197 | dut_out=17
+# UVM_INFO scoreboard.sv(216) @ 65: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 65: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 21 | OB: 99 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 75: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 21 | OB: 99 | cin: 0 | res: 197
+# UVM_INFO scoreboard.sv(149) @ 75: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 108 | dut_out=197
+# UVM_INFO scoreboard.sv(216) @ 75: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 75: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 152 | OB: 148 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 85: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 152 | OB: 148 | cin: 1 | res: 108
+# UVM_INFO scoreboard.sv(149) @ 85: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 239 | dut_out=108
+# UVM_INFO scoreboard.sv(216) @ 85: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 85: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 20 | OB: 10 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 95: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 20 | OB: 10 | cin: 0 | res: 239
+# UVM_INFO scoreboard.sv(149) @ 95: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 0 | OB: 0 | cin: 0 | res: 162 | dut_out=239
+# --------------|-------------------------------|----------------------------
+# OA 		|		20		|		-
+# OB 		|		10		|		-
+# cin		|		0		|		-
+# Stored OPRD1	|		152		|		-
+# Stored OPRD2	|		10		|		-
+# --------------|-------------------------------|----------------------------
+# Field		|	Reference Output	|	Actual Response
+# --------------|-------------------------------|----------------------------
+# rst		|		0		|		0
+# ce		|		1		|		1
+# mode		|		1		|		1
+# cmd		|		0		|		0
+# inp_valid	|		10		|		10
+# res		|		239		|		239
+# err		|		0		|		0
+# oflow		|		0		|		0
+# cout		|		0		|		0
+# g		|		0		|		0
+# e		|		0		|		0
+# l		|		0		|		0
+# UVM_INFO scoreboard.sv(247) @ 95: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ----------------------------------------------------------------------------
+#                   TEST PASS
+# ----------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 95: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 213 | OB: 78 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 105: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 213 | OB: 78 | cin: 0 | res: 162
+# UVM_INFO scoreboard.sv(149) @ 105: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 223 | dut_out=162
+# UVM_INFO scoreboard.sv(216) @ 105: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 105: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 219 | OB: 154 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 115: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 219 | OB: 154 | cin: 0 | res: 223
+# UVM_INFO scoreboard.sv(149) @ 115: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 229 | dut_out=223
+# UVM_INFO scoreboard.sv(216) @ 115: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 115: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 199 | OB: 77 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 125: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 199 | OB: 77 | cin: 1 | res: 229
+# UVM_INFO scoreboard.sv(149) @ 125: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 0 | OB: 0 | cin: 1 | res: 296 | dut_out=229
+# --------------|-------------------------------|----------------------------
+# OA 		|		199		|		-
+# OB 		|		77		|		-
+# cin		|		1		|		-
+# Stored OPRD1	|		219		|		-
+# Stored OPRD2	|		77		|		-
+# --------------|-------------------------------|----------------------------
+# Field		|	Reference Output	|	Actual Response
+# --------------|-------------------------------|----------------------------
+# rst		|		0		|		0
+# ce		|		1		|		1
+# mode		|		1		|		1
+# cmd		|		0		|		0
+# inp_valid	|		10		|		10
+# res		|		229		|		229
+# err		|		0		|		0
+# oflow		|		0		|		0
+# cout		|		0		|		0
+# g		|		0		|		0
+# e		|		0		|		0
+# l		|		0		|		0
+# UVM_INFO scoreboard.sv(247) @ 125: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ----------------------------------------------------------------------------
+#                   TEST PASS
+# ----------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 125: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 243 | OB: 13 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 135: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 243 | OB: 13 | cin: 0 | res: 40
+# UVM_INFO scoreboard.sv(149) @ 135: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 320 | dut_out=40
+# UVM_INFO scoreboard.sv(216) @ 135: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 135: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 123 | OB: 96 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 145: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 123 | OB: 96 | cin: 1 | res: 64
+# UVM_INFO scoreboard.sv(149) @ 145: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 200 | dut_out=64
+# UVM_INFO scoreboard.sv(216) @ 145: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 145: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 75 | OB: 247 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 155: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 75 | OB: 247 | cin: 0 | res: 200
+# UVM_INFO scoreboard.sv(149) @ 155: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 152 | dut_out=200
+# UVM_INFO scoreboard.sv(216) @ 155: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 155: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 36 | OB: 1 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 165: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 36 | OB: 1 | cin: 1 | res: 152
+# UVM_INFO scoreboard.sv(149) @ 165: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 113 | dut_out=152
+# UVM_INFO scoreboard.sv(216) @ 165: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 165: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 98 | OB: 51 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 175: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 98 | OB: 51 | cin: 0 | res: 113
+# UVM_INFO scoreboard.sv(149) @ 175: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 175 | dut_out=113
+# UVM_INFO scoreboard.sv(216) @ 175: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 175: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 27 | OB: 181 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 185: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 27 | OB: 181 | cin: 1 | res: 175
+# UVM_INFO scoreboard.sv(149) @ 185: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 104 | dut_out=175
+# UVM_INFO scoreboard.sv(216) @ 185: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 185: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 129 | OB: 27 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 195: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 129 | OB: 27 | cin: 1 | res: 104
+# UVM_INFO scoreboard.sv(149) @ 195: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 0 | OB: 0 | cin: 1 | res: 54 | dut_out=104
+# --------------|-------------------------------|----------------------------
+# OA 		|		129		|		-
+# OB 		|		27		|		-
+# cin		|		1		|		-
+# Stored OPRD1	|		27		|		-
+# Stored OPRD2	|		27		|		-
+# --------------|-------------------------------|----------------------------
+# Field		|	Reference Output	|	Actual Response
+# --------------|-------------------------------|----------------------------
+# rst		|		0		|		0
+# ce		|		1		|		1
+# mode		|		1		|		1
+# cmd		|		0		|		0
+# inp_valid	|		10		|		10
+# res		|		104		|		104
+# err		|		0		|		0
+# oflow		|		0		|		0
+# cout		|		0		|		0
+# g		|		0		|		0
+# e		|		0		|		0
+# l		|		0		|		0
+# UVM_INFO scoreboard.sv(247) @ 195: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ----------------------------------------------------------------------------
+#                   TEST PASS
+# ----------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 195: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 194 | OB: 93 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 205: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 194 | OB: 93 | cin: 1 | res: 54
+# UVM_INFO scoreboard.sv(149) @ 205: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 221 | dut_out=54
+# UVM_INFO scoreboard.sv(216) @ 205: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 205: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 129 | OB: 7 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 215: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 129 | OB: 7 | cin: 0 | res: 221
+# UVM_INFO scoreboard.sv(149) @ 215: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 156 | dut_out=221
+# UVM_INFO scoreboard.sv(216) @ 215: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 215: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 5 | OB: 117 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 225: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 5 | OB: 117 | cin: 1 | res: 156
+# UVM_INFO scoreboard.sv(149) @ 225: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 32 | dut_out=156
+# UVM_INFO scoreboard.sv(216) @ 225: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 225: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 117 | OB: 242 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 235: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 117 | OB: 242 | cin: 1 | res: 32
+# UVM_INFO scoreboard.sv(149) @ 235: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 144 | dut_out=32
+# UVM_INFO scoreboard.sv(216) @ 235: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 235: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 182 | OB: 155 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 245: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 182 | OB: 155 | cin: 0 | res: 144
+# UVM_INFO scoreboard.sv(149) @ 245: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 209 | dut_out=144
+# UVM_INFO scoreboard.sv(216) @ 245: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 245: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 200 | OB: 15 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 255: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 200 | OB: 15 | cin: 1 | res: 209
+# UVM_INFO scoreboard.sv(149) @ 255: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 227 | dut_out=209
+# UVM_INFO scoreboard.sv(216) @ 255: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 255: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 59 | OB: 174 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 265: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 59 | OB: 174 | cin: 0 | res: 227
+# UVM_INFO scoreboard.sv(149) @ 265: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 0 | OB: 0 | cin: 0 | res: 374 | dut_out=227
+# --------------|-------------------------------|----------------------------
+# OA 		|		59		|		-
+# OB 		|		174		|		-
+# cin		|		0		|		-
+# Stored OPRD1	|		200		|		-
+# Stored OPRD2	|		174		|		-
+# --------------|-------------------------------|----------------------------
+# Field		|	Reference Output	|	Actual Response
+# --------------|-------------------------------|----------------------------
+# rst		|		0		|		0
+# ce		|		1		|		1
+# mode		|		1		|		1
+# cmd		|		0		|		0
+# inp_valid	|		10		|		10
+# res		|		227		|		227
+# err		|		0		|		0
+# oflow		|		0		|		0
+# cout		|		0		|		0
+# g		|		0		|		0
+# e		|		0		|		0
+# l		|		0		|		0
+# UVM_INFO scoreboard.sv(247) @ 265: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ----------------------------------------------------------------------------
+#                   TEST PASS
+# ----------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 265: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 245 | OB: 40 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 275: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 245 | OB: 40 | cin: 1 | res: 118
+# UVM_INFO scoreboard.sv(149) @ 275: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 419 | dut_out=118
+# UVM_INFO scoreboard.sv(216) @ 275: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 275: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 243 | OB: 157 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 285: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 243 | OB: 157 | cin: 1 | res: 163
+# UVM_INFO scoreboard.sv(149) @ 285: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 417 | dut_out=163
+# UVM_INFO scoreboard.sv(216) @ 285: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 285: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 143 | OB: 17 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 295: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 143 | OB: 17 | cin: 0 | res: 161
+# UVM_INFO scoreboard.sv(149) @ 295: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 317 | dut_out=161
+# UVM_INFO scoreboard.sv(216) @ 295: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 295: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 223 | OB: 15 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 305: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 223 | OB: 15 | cin: 1 | res: 61
+# UVM_INFO scoreboard.sv(149) @ 305: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 0 | OB: 0 | cin: 1 | res: 158 | dut_out=61
+# --------------|-------------------------------|----------------------------
+# OA 		|		223		|		-
+# OB 		|		15		|		-
+# cin		|		1		|		-
+# Stored OPRD1	|		143		|		-
+# Stored OPRD2	|		15		|		-
+# --------------|-------------------------------|----------------------------
+# Field		|	Reference Output	|	Actual Response
+# --------------|-------------------------------|----------------------------
+# rst		|		0		|		0
+# ce		|		1		|		1
+# mode		|		1		|		1
+# cmd		|		0		|		0
+# inp_valid	|		10		|		10
+# res		|		317		|		61
+# err		|		0		|		0
+# oflow		|		0		|		0
+# cout		|		1		|		1
+# g		|		0		|		0
+# e		|		0		|		0
+# l		|		0		|		0
+# UVM_ERROR scoreboard.sv(250) @ 305: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ----------------------------------------------------------------------------
+#                   TEST FAILED
+# ----------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 305: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 203 | OB: 141 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 315: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 203 | OB: 141 | cin: 0 | res: 158
+# UVM_INFO scoreboard.sv(149) @ 315: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 218 | dut_out=158
+# UVM_INFO scoreboard.sv(216) @ 315: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 315: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 145 | OB: 25 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 325: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 145 | OB: 25 | cin: 0 | res: 218
+# UVM_INFO scoreboard.sv(149) @ 325: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 160 | dut_out=218
+# UVM_INFO scoreboard.sv(216) @ 325: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 325: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 31 | OB: 99 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 335: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 31 | OB: 99 | cin: 0 | res: 160
+# UVM_INFO scoreboard.sv(149) @ 335: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 46 | dut_out=160
+# UVM_INFO scoreboard.sv(216) @ 335: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 335: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 227 | OB: 210 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 345: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 227 | OB: 210 | cin: 0 | res: 46
+# UVM_INFO scoreboard.sv(149) @ 345: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 242 | dut_out=46
+# UVM_INFO scoreboard.sv(216) @ 345: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 345: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 164 | OB: 180 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 355: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 164 | OB: 180 | cin: 0 | res: 242
+# UVM_INFO scoreboard.sv(149) @ 355: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 179 | dut_out=242
+# UVM_INFO scoreboard.sv(216) @ 355: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 355: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 195 | OB: 237 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 365: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 195 | OB: 237 | cin: 1 | res: 179
+# UVM_INFO scoreboard.sv(149) @ 365: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 0 | OB: 0 | cin: 1 | res: 401 | dut_out=179
+# --------------|-------------------------------|----------------------------
+# OA 		|		195		|		-
+# OB 		|		237		|		-
+# cin		|		1		|		-
+# Stored OPRD1	|		164		|		-
+# Stored OPRD2	|		237		|		-
+# --------------|-------------------------------|----------------------------
+# Field		|	Reference Output	|	Actual Response
+# --------------|-------------------------------|----------------------------
+# rst		|		0		|		0
+# ce		|		1		|		1
+# mode		|		1		|		1
+# cmd		|		0		|		0
+# inp_valid	|		10		|		10
+# res		|		179		|		179
+# err		|		0		|		0
+# oflow		|		0		|		0
+# cout		|		0		|		0
+# g		|		0		|		0
+# e		|		0		|		0
+# l		|		0		|		0
+# UVM_INFO scoreboard.sv(247) @ 365: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ----------------------------------------------------------------------------
+#                   TEST PASS
+# ----------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 365: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 146 | OB: 253 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 375: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 146 | OB: 253 | cin: 1 | res: 145
+# UVM_INFO scoreboard.sv(149) @ 375: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 383 | dut_out=145
+# UVM_INFO scoreboard.sv(216) @ 375: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 375: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 120 | OB: 235 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 385: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 120 | OB: 235 | cin: 0 | res: 127
+# UVM_INFO scoreboard.sv(149) @ 385: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 357 | dut_out=127
+# UVM_INFO scoreboard.sv(216) @ 385: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 385: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 177 | OB: 230 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 395: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 177 | OB: 230 | cin: 1 | res: 101
+# UVM_INFO scoreboard.sv(149) @ 395: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 414 | dut_out=101
+# UVM_INFO scoreboard.sv(216) @ 395: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 395: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 196 | OB: 29 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 405: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 196 | OB: 29 | cin: 1 | res: 158
+# UVM_INFO scoreboard.sv(149) @ 405: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 433 | dut_out=158
+# UVM_INFO scoreboard.sv(216) @ 405: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 405: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 223 | OB: 114 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 415: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 223 | OB: 114 | cin: 1 | res: 177
+# UVM_INFO scoreboard.sv(149) @ 415: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 460 | dut_out=177
+# UVM_INFO scoreboard.sv(216) @ 415: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 415: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 134 | OB: 142 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 425: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 134 | OB: 142 | cin: 0 | res: 204
+# UVM_INFO scoreboard.sv(149) @ 425: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 0 | OB: 0 | cin: 0 | res: 365 | dut_out=204
+# --------------|-------------------------------|----------------------------
+# OA 		|		134		|		-
+# OB 		|		142		|		-
+# cin		|		0		|		-
+# Stored OPRD1	|		223		|		-
+# Stored OPRD2	|		142		|		-
+# --------------|-------------------------------|----------------------------
+# Field		|	Reference Output	|	Actual Response
+# --------------|-------------------------------|----------------------------
+# rst		|		0		|		0
+# ce		|		1		|		1
+# mode		|		1		|		1
+# cmd		|		0		|		0
+# inp_valid	|		10		|		10
+# res		|		460		|		204
+# err		|		0		|		0
+# oflow		|		0		|		0
+# cout		|		1		|		1
+# g		|		0		|		0
+# e		|		0		|		0
+# l		|		0		|		0
+# UVM_ERROR scoreboard.sv(250) @ 425: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ----------------------------------------------------------------------------
+#                   TEST FAILED
+# ----------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 425: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 207 | OB: 133 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 435: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 207 | OB: 133 | cin: 1 | res: 109
+# UVM_INFO scoreboard.sv(149) @ 435: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 349 | dut_out=109
+# UVM_INFO scoreboard.sv(216) @ 435: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 435: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 157 | OB: 133 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 445: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 157 | OB: 133 | cin: 0 | res: 93
+# UVM_INFO scoreboard.sv(149) @ 445: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 299 | dut_out=93
+# UVM_INFO scoreboard.sv(216) @ 445: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 445: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 206 | OB: 162 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 455: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 206 | OB: 162 | cin: 1 | res: 43
+# UVM_INFO scoreboard.sv(149) @ 455: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 348 | dut_out=43
+# UVM_INFO scoreboard.sv(216) @ 455: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 455: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 155 | OB: 189 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 465: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 155 | OB: 189 | cin: 1 | res: 92
+# UVM_INFO scoreboard.sv(149) @ 465: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 297 | dut_out=92
+# UVM_INFO scoreboard.sv(216) @ 465: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 465: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 50 | OB: 27 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 475: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 50 | OB: 27 | cin: 0 | res: 41
+# UVM_INFO scoreboard.sv(149) @ 475: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 192 | dut_out=41
+# UVM_INFO scoreboard.sv(216) @ 475: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 475: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 143 | OB: 104 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 485: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 143 | OB: 104 | cin: 0 | res: 192
+# UVM_INFO scoreboard.sv(149) @ 485: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 0 | OB: 0 | cin: 0 | res: 154 | dut_out=192
+# --------------|-------------------------------|----------------------------
+# OA 		|		143		|		-
+# OB 		|		104		|		-
+# cin		|		0		|		-
+# Stored OPRD1	|		50		|		-
+# Stored OPRD2	|		104		|		-
+# --------------|-------------------------------|----------------------------
+# Field		|	Reference Output	|	Actual Response
+# --------------|-------------------------------|----------------------------
+# rst		|		0		|		0
+# ce		|		1		|		1
+# mode		|		1		|		1
+# cmd		|		0		|		0
+# inp_valid	|		10		|		10
+# res		|		192		|		192
+# err		|		0		|		0
+# oflow		|		0		|		0
+# cout		|		0		|		0
+# g		|		0		|		0
+# e		|		0		|		0
+# l		|		0		|		0
+# UVM_INFO scoreboard.sv(247) @ 485: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ----------------------------------------------------------------------------
+#                   TEST PASS
+# ----------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 485: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 186 | OB: 73 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 495: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 186 | OB: 73 | cin: 1 | res: 154
+# UVM_INFO scoreboard.sv(149) @ 495: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 290 | dut_out=154
+# UVM_INFO scoreboard.sv(216) @ 495: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 495: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 57 | OB: 63 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 505: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 57 | OB: 63 | cin: 0 | res: 34
+# UVM_INFO scoreboard.sv(149) @ 505: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 161 | dut_out=34
+# UVM_INFO scoreboard.sv(216) @ 505: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 505: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 81 | OB: 126 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 515: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 81 | OB: 126 | cin: 1 | res: 161
+# UVM_INFO scoreboard.sv(149) @ 515: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 185 | dut_out=161
+# UVM_INFO scoreboard.sv(216) @ 515: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 515: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 84 | OB: 183 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 525: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 84 | OB: 183 | cin: 0 | res: 185
+# UVM_INFO scoreboard.sv(149) @ 525: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 188 | dut_out=185
+# UVM_INFO scoreboard.sv(216) @ 525: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 525: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 183 | OB: 137 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 535: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 183 | OB: 137 | cin: 0 | res: 188
+# UVM_INFO scoreboard.sv(149) @ 535: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 0 | res: 287 | dut_out=188
+# UVM_INFO scoreboard.sv(216) @ 535: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 535: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 163 | OB: 107 | cin: 1
+# UVM_INFO pas_monitor.sv(38) @ 545: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 163 | OB: 107 | cin: 1 | res: 31
+# UVM_INFO scoreboard.sv(149) @ 545: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 01 | OA: 0 | OB: 0 | cin: 1 | res: 267 | dut_out=31
+# UVM_INFO scoreboard.sv(216) @ 545: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ------------------------------------------------------------------------------
+#        SCOREBOARD WAITING FOR OPERAND (WAIT CYCLE: 0)
+# ------------------------------------------------------------------------------
+# UVM_INFO driver.sv(33) @ 545: uvm_test_top.env_h.act_agt_h.drv_h [alu_driver] Driving -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 99 | OB: 28 | cin: 0
+# UVM_INFO pas_monitor.sv(38) @ 555: uvm_test_top.env_h.pas_agt_h.pas_mon_h [alu_pas_monitor] pas_mon -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 99 | OB: 28 | cin: 0 | res: 11
+# UVM_INFO scoreboard.sv(149) @ 555: uvm_test_top.env_h.scb_h [alu_scoreboard] scb arithmatic -> rst: 0 | ce: 1 | mode: 1 | cmd: 0 | valid: 10 | OA: 0 | OB: 0 | cin: 0 | res: 191 | dut_out=11
+# --------------|-------------------------------|----------------------------
+# OA 		|		99		|		-
+# OB 		|		28		|		-
+# cin		|		0		|		-
+# Stored OPRD1	|		163		|		-
+# Stored OPRD2	|		28		|		-
+# --------------|-------------------------------|----------------------------
+# Field		|	Reference Output	|	Actual Response
+# --------------|-------------------------------|----------------------------
+# rst		|		0		|		0
+# ce		|		1		|		1
+# mode		|		1		|		1
+# cmd		|		0		|		0
+# inp_valid	|		10		|		10
+# res		|		267		|		11
+# err		|		0		|		0
+# oflow		|		0		|		0
+# cout		|		1		|		1
+# g		|		0		|		0
+# e		|		0		|		0
+# l		|		0		|		0
+# UVM_ERROR scoreboard.sv(250) @ 555: uvm_test_top.env_h.scb_h [alu_scoreboard] 
+# ----------------------------------------------------------------------------
+#                   TEST FAILED
+# ----------------------------------------------------------------------------
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 555: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :  225
+# UVM_WARNING :    0
+# UVM_ERROR :    4
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# [alu_driver]    56
+# [alu_pas_monitor]    56
+# [alu_scoreboard]   112
+# ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 555 ns  Iteration: 63  Instance: /top
+# End time: 12:17:00 on Aug 04,2026, Elapsed time: 0:00:07
+# Errors: 0, Warnings: 1
