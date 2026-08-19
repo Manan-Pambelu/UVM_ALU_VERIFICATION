@@ -1,0 +1,7 @@
+work/
+covReport/
+*.ucdb
+transcript
+*.log
+*.vstf
+modelsim.ini
